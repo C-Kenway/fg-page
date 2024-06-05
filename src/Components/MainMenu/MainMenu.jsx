@@ -70,12 +70,14 @@ const MainMenu = ({ correoUsuario }) => {
                 if (statusCode === 200 || statusCode === 201) {
                     setResult(data);
                     navigate('/Resultados', { state: { imageBase64, result: data } });
+                    ShowLoaingMessege(false)
                     Swal.fire({
                         icon: 'success',
                         title: 'Imagen cargada correctamente',
                         showConfirmButton: false,
                     });
                 } else {
+                    ShowLoaingMessege(false)
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -83,6 +85,7 @@ const MainMenu = ({ correoUsuario }) => {
                     });
                 }
             } catch (error) {
+                ShowLoaingMessege(false)
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -90,7 +93,7 @@ const MainMenu = ({ correoUsuario }) => {
                 });
             }
         }
-        ShowLoaingMessege(false)
+        
     };
 
     useEffect(() => {
