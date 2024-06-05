@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/predict"
+  to = "http://158.23.136.46:5000/predict"
+  status = 200
+  force = true
