@@ -50,23 +50,23 @@ const MainMenu = ({ correoUsuario }) => {
     };
 
     const uploadImage = async () => {
+        ShowLoaingMessege(true)
         if (file) {
             const formData = new FormData();
-            formData.append('file', file);
-    
+            formData.append('image', file);
             try {
-                const response = await fetch('/predict', {
+                const response = await fetch('/predict', { // El proxy redirigirá esta solicitud
                     method: 'POST',
                     body: formData,
                 });
-    
+                
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-    
+
                 const data = await response.json();
                 const statusCode = response.status;
-    
+
                 if (statusCode === 200 || statusCode === 201) {
                     setResult(data);
                     navigate('/Resultados', { state: { imageBase64, result: data } });
@@ -90,8 +90,9 @@ const MainMenu = ({ correoUsuario }) => {
                 });
             }
         }
+        ShowLoaingMessege(false)
     };
-
+    
     useEffect(() => {
         if (file && imageBase64) {
             uploadImage();
