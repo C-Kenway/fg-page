@@ -77,7 +77,6 @@ const MainMenu = ({ correoUsuario }) => {
                         showConfirmButton: false,
                     });
                 } else {
-                    ShowLoaingMessege(false)
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -85,7 +84,6 @@ const MainMenu = ({ correoUsuario }) => {
                     });
                 }
             } catch (error) {
-                ShowLoaingMessege(false)
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
