@@ -50,27 +50,26 @@ const MainMenu = ({ correoUsuario }) => {
     };
 
     const uploadImage = async () => {
-        ShowLoaingMessege(true)
-        if (file && imageBase64) {
+        if (file) {
             const formData = new FormData();
-            formData.append('image', file);
+            formData.append('file', file);
+    
             try {
-                const response = await fetch('/predict', { // El proxy redirigirá esta solicitud
+                const response = await fetch('/predict', {
                     method: 'POST',
                     body: formData,
                 });
-                
+    
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
+    
                 const data = await response.json();
                 const statusCode = response.status;
-
+    
                 if (statusCode === 200 || statusCode === 201) {
                     setResult(data);
                     navigate('/Resultados', { state: { imageBase64, result: data } });
-                    ShowLoaingMessege(false)
                     Swal.fire({
                         icon: 'success',
                         title: 'Imagen cargada correctamente',
@@ -91,7 +90,6 @@ const MainMenu = ({ correoUsuario }) => {
                 });
             }
         }
-        
     };
 
     useEffect(() => {
