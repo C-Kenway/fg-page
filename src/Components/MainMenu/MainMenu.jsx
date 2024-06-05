@@ -55,7 +55,7 @@ const MainMenu = ({ correoUsuario }) => {
             const formData = new FormData();
             formData.append('image', file);
             try {
-                const response = await fetch('http://158.23.136.46:5000/predict', { // El proxy redirigirá esta solicitud
+                const response = await fetch('/predict', { // El proxy redirigirá esta solicitud
                     method: 'POST',
                     body: formData,
                 });
