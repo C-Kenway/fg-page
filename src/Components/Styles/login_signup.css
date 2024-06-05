@@ -1,0 +1,291 @@
+body{
+    background-color: #ACF7F2;
+  }
+
+.container_log{
+ display:flex; 
+ flex-direction: column;
+}
+.mainlogo_log img{
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    width: 22.5%; /* La imagen ocupará el 100% del ancho del contenedor */
+    height: auto; /* La imagen ocupará el 100% de la altura del contenedor */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+}
+.data_log{
+    display: flex;
+    flex-direction: column;
+    background: #ffffff6b;
+    margin: 0;
+    padding-bottom: 30px;
+    border-radius: 15%; 
+    flex-grow: 1;   
+    width: 100%; 
+    padding: 10px;
+}
+.header_log{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /*Separacion de con el siguiente item*/
+    width: 100%;
+    margin-top: 30px;
+}
+.text{
+    color: #000000;
+    font-size: 48px;
+    font-weight: bold;
+}
+.underline{
+    width: 100px;
+    height: 2px;
+    background: rgb(53, 53, 54);
+    border-radius: 9px;
+    margin-top: 5px;
+}
+.input-line{
+    border: none; /* Elimina el borde por defecto */
+    border-bottom: 1px solid #4e4d4de7; /* Añade una línea inferior */
+    padding: 5px; /* Ajusta el relleno según sea necesario */
+    margin: 5px 0; /* Ajusta el margen según sea necesario */
+    outline: none; /* Elimina el contorno al hacer clic (puedes ajustar según tus preferencias) */
+    background: transparent;
+    color: #797979;
+    font-size: 19px;
+}
+.inputs{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background: #eaeaea31;
+    border-radius: 6px ;
+}
+.input img{
+    margin: 0px 27px;
+}
+.submit-container_log{
+    display: flex;
+    gap: 27px;
+    justify-content: center;
+    align-items: center;
+}
+.submit_log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 55px;
+    color: #fff;
+    background: #00142D;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.link-Signup{
+    padding-left: 600px;
+    color: #797979;
+    font-size: 18px;
+}
+.link-Signup span{
+    color: #00142D;
+    cursor: pointer;
+}
+/* Estilos para alinear checkbox y enlace */
+.checkbox-link-container {
+    padding-left: 500px;
+    display: flex; /* Mostrar los elementos como flex */
+    align-items: center; /* Centrar verticalmente los elementos */
+    gap: 10px; /* Espacio entre el checkbox y el enlace */
+}
+
+.loading{
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para pantallas pequeñas (hasta 480px de ancho) */
+@media (max-width: 480px) {
+    .text{
+        font-size: 28px;
+    }
+    .container_log {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .mainlogo_log img {
+        width: 50%; 
+        height: auto;
+    }
+
+    .data_log {
+        width: 100%; 
+        margin: 0;
+        padding: 10px;
+        border-radius: 10%; 
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .input {
+        display: flex;
+        margin: auto;
+        align-items: center;
+    }
+
+    .input-line{
+        font-size: 15px;
+    }
+
+    .submit-container_log {
+        margin: 10px 0; 
+        gap: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .submit_log {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%; 
+        height: 35px;
+    }
+    .link-Signup{
+        padding-left: 100px;
+        color: #797979;
+        font-size: 10px;
+    }
+    .checkbox-link-container{
+        padding-left: 10px;
+    }
+}
+
+/* Estilos para pantallas medianas (de 481px a 768px de ancho) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .text{
+        font-size: 38px;
+    }
+    .container_log {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .mainlogo_log img {
+        width: 40%; 
+        height: auto;
+    }
+
+    .data_log {
+        width: 100%; 
+        margin: 0;
+        padding: 10px;
+        border-radius: 10%; 
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input {
+        display: flex;
+        align-items: center;
+        margin: auto;
+        border-radius: 6px;
+    }
+
+    .submit-container_log {
+        margin: 20px 0;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .submit_log {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%; 
+        height: 40px;
+    }
+    .link-Signup{
+        padding-left: 250px;
+        color: #797979;
+        font-size: 14px;
+    }
+    .checkbox-link-container{
+        padding-left: 150px;
+    }
+}
+
+/* Estilos para pantallas grandes (de 769px a 1024px de ancho) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container_log {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .mainlogo_log img {
+        width: 25%; 
+        height: auto;
+    }
+
+    .data_log {
+        width: 100%; 
+        margin: 0;
+        padding: 15px;
+        border-radius: 10%; 
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input {
+        display: flex;
+        align-items: center;
+        margin: auto;
+        border-radius: 6px;
+    }
+
+    .submit-container_log {
+        margin: 40px 0;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .submit_log {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 38%; 
+        height: 50px;
+    }
+    .link-Signup{
+        padding-left: 400px;
+        color: #797979;
+        font-size: 15px;
+    }
+    .checkbox-link-container{
+        padding-left: 300px;
+    }
+} 

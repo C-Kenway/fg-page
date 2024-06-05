@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+body{
+    background-color: #ACF7F2;
+  }
+  
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+.header {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    background: #00142D;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Añade margen interno */
+    position: relative; /* Permite posicionamiento absoluto de elementos hijos */
+}
+.exit-img {
+    height: 50px;
+    width: 50px;
+    position: absolute; /* Posiciona la imagen de forma absoluta */
+    top: 10px; /* Espacio desde la parte superior */
+    left: 10px; /* Espacio desde la parte derecha */
+}
+.mainlogo{
+    display: flex;
+    margin: 0 auto;
+}
+.mainlogo img{
+    margin: 0 auto;
+    width: 275px; /* La imagen ocupará el % del ancho del contenedor */
+    height: 100%; /* La imagen ocupará el % de la altura del contenedor */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+    border-radius: 60%;
+}
+.data {
+    display: flex;
+    flex-direction: row; /* Alinea los elementos en una fila */
+    justify-content: space-around; /* Espacia los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 20px;
+}
+.info_count-container,
+.submit-container,
+.info-us {
+    width: 30%; /* Cada uno ocupará un tercio del contenedor padre */
+    padding: 10px;
+    border-radius: 8px;
+}
+.info_count-container{
+    background-color: #ffffff81;
+}
+.submit-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Espacia los elementos uniformemente */
+    align-items: center;
+    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+    padding: 10px; /* Añade un poco de espacio interno */
+}
+.submit-container .photo-load {
+    display: flex;
+    flex-direction: column; /* Organiza la imagen y el texto en columna */
+    align-items: center; /* Centra la imagen y el texto */
+    margin-bottom: 20px; /* Espacio entre cada bloque de imagen y texto */
+}
+
+.submit-container p {
+    font-size: 16px; /* Ajusta el tamaño de la fuente */
+    color: #000; /* Ajusta el color del texto */
+    margin-top: 5px; /* Añade espacio entre la imagen y el texto */
+    text-align: center; /* Centra el texto debajo de la imagen */
+    font-family: 'Montserrat', sans-serif;
+}
+.photo-load {
+    display: flex;
+    justify-content: center; /* Centra las imágenes */
+    align-items: center;
+}
+.photo-load .submit {
+    max-width: 60%; /* La imagen no excede el 100% del ancho del contenedor */
+    max-height: 70%; /* La imagen no excede el 100% de la altura del contenedor */
+    width: auto; /* Ajusta automáticamente el ancho */
+    height: auto; /* Ajusta automáticamente la altura */
+}
+button{
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff00;
+    border: none; /*Sirve para quitar el borde de la foto mas adelante lo usaremos*/
+}
+.info-us{
+    display: flex;
+    justify-content: space-between; /* Espacia uniformemente las imágenes */
+    width: 50%; /* Ajusta según tus necesidades */
+}
+
+.submit {
+    max-width: 50%; /* Se ajusta al 100% del contenedor */
+    max-height: 60%; /* Se ajusta al 100% del contenedor */
+    width: auto; /* Ajusta automáticamente el ancho */
+    height: auto; /* Ajusta automáticamente la altura */
+}
+.text{
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+}
+.info-us img {
+    width: auto; /* Permite que las imágenes mantengan su relación de aspecto */
+    max-width: 60%; /* Evita que las imágenes excedan el ancho del contenedor */
+    height: auto; /* Ajusta automáticamente la altura */
+    margin: 10px; /* Añade espacio entre las imágenes */
+}
+
+@media (max-width: 480px) {
+    /* Ajustar el contenedor */
+    .container {
+        flex-direction: column; /* Asegurarse de que los elementos estén en una columna */
+        padding: 10px; /* Añadir relleno para mantener los elementos separados */
+    }
+
+    /* Ajustar la cabecera */
+    .header {
+        height: 100px; /* Reducir la altura de la cabecera */
+        padding: 0 10px; /* Ajustar el padding */
+    }
+
+    /* Ajustar el tamaño de la imagen de salida */
+    .exit-img {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Ajustar el logo principal */
+    .mainlogo img {
+        width: 23%; /* Reducir el ancho */
+        height: auto; /* Mantener la altura proporcional */
+    }
+
+    /* Ajustar la sección de datos */
+    .data {
+        flex-direction: column; /* Cambiar a disposición en columna */
+        padding: 10px; /* Ajustar el relleno */
+    }
+
+    /* Ajustar los contenedores */
+    .info_count-container,
+    .submit-container,
+    .info-us {
+        width: 100%; /* Ocupando el 100% del ancho */
+        margin-bottom: 10px; /* Añadir espacio entre elementos */
+    }
+
+    /* Ajustar el texto */
+    .submit-container p,
+    .text {
+        font-size: 12px; /* Reducir el tamaño de la fuente */
+    }
+
+    /* Ajustar el botón de envío */
+    .submit {
+        max-width: 100%; /* El botón ocupará todo el ancho disponible */
+        height: 40px; /* Reducir la altura */
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Ajustar el contenedor */
+    .container {
+        flex-direction: column;
+        padding: 10px; /* Añadir relleno para mantener los elementos separados */
+    }
+    .header {
+        height: 120px; /* Reducir la altura de la cabecera */
+        padding: 0 10px; /* Ajustar el padding */
+    }
+
+    /* Ajustar el logo principal */
+    .mainlogo img {
+        width: 20%; /* Ajustar el ancho */
+        height: auto; /* Mantener la altura proporcional */
+    }
+
+    /* Ajustar la sección de datos */
+    .data {
+        flex-direction: column; /* Cambiar a disposición en columna */
+        padding: 0px; /* Ajustar el relleno */
+        margin-top: 10px;
+    }
+
+    /* Ajustar los contenedores */
+    .info_count-container,
+    .submit-container,
+    .info-us {
+        width: 100%; /* Ocupando el 40% del ancho */
+        margin-bottom: 10px; /* Añadir espacio entre elementos */
+    }
+
+    /* Ajustar el texto */
+    .submit-container p,
+    .text {
+        font-size: 16px; /* Ajustar el tamaño de la fuente */
+    }
+
+    /* Ajustar el botón de envío */
+    .submit {
+        max-width: 80%; /* Ajustar el ancho */
+        height: 50px; /* Ajustar la altura */
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Ajustar el contenedor */
+    .container {
+        flex-direction: column; /* Cambia la dirección a fila para disposición horizontal */
+        padding: 10px; /* Agrega relleno alrededor del contenedor */
+    }
+
+    /* Ajustar la cabecera */
+    .header {
+        height: 150px; /* Mantiene la altura de la cabecera */
+        padding: 0 20px; /* Agrega relleno horizontal */
+    }
+
+    /* Ajustar la imagen de salida */
+    .exit-img {
+        height: 50px; /* Mantiene la altura */
+        width: 50px; /* Mantiene el ancho */
+    }
+
+    /* Ajustar el logo principal */
+    .mainlogo img {
+        width: 22%; /* Ajusta el ancho del logo */
+        height: auto; /* Mantiene la proporción de altura */
+    }
+
+    /* Ajustar la sección de datos */
+    .data {
+        flex-direction: row; /* Mantiene la disposición en fila */
+        padding: 20px; /* Ajusta el relleno */
+    }
+
+    /* Ajustar los contenedores */
+    .info_count-container,
+    .submit-container,
+    .info-us {
+        width: 90%; /* Cada contenedor ocupa un tercio del espacio */
+        padding: 15px; /* Ajusta el padding para mayor separación */
+        justify-content: space-around; /* Espacia uniformemente los elementos */
+    }
+
+    /* Ajustar el texto */
+    .submit-container p,
+    .text {
+        font-size: 18px; /* Ajusta el tamaño de la fuente para mayor legibilidad */
+    }
+
+    /* Ajustar el botón de envío */
+    .submit {
+        width: 100%; /* El botón ocupará todo el ancho del contenedor */
+        height: 50px; /* Ajusta la altura */
+    }
+
+    /* Ajustar la sección de carga de fotos */
+    .photo-load .submit {
+        width: 100%; /* La imagen ocupará el 70% del ancho del contenedor */
+        height: auto; /* Mantiene la proporción de altura */
+    }
+    .info-us img {
+        width: auto; /* Permite que las imágenes mantengan su relación de aspecto */
+        max-width: 70%; /* Evita que las imágenes excedan el ancho del contenedor */
+        height: auto; /* Ajusta automáticamente la altura */
+        margin: 10px; /* Añade espacio entre las imágenes */
+    }
+}

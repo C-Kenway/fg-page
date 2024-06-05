@@ -1,0 +1,8 @@
+:root {
+  background-color: #ACF7F2;
+}
+body {
+  display: flex;
+  place-items: center;
+}
+

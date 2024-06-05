@@ -1,0 +1,178 @@
+.container_res {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    padding: 20px;
+}
+
+.header_res {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    background-color: #00142D;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.head-text_res{
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.text_res{
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.header_nav {
+    display: flex;
+}
+
+
+.imagen_muestra {
+    width: 500px;
+    /* Ajusta el ancho de la imagen */
+    height: 300px;
+    /* Ajusta el alto de la imagen */
+    object-fit: cover;
+    /* Mantiene la relación de aspecto de la imagen y la cubre completamente con el contenedor */
+    border-radius: 10px;
+    /* Añade bordes redondeados a la imagen */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Añade una sombra a la imagen */
+    margin-right: 20px;
+    /* Añade un margen derecho a la imagen para separarla del contenido de la derecha */
+}
+
+.img_muestra {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.data_res {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en la siguiente línea si no caben en la actual */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme entre los extremos del contenedor */
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+.info_daños {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(50% - 20px);
+    /* Ocupa la mitad del ancho del contenedor menos el margen derecho de la imagen */
+}
+
+.info_daños .text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .info_daños p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+
+  .info_recomendaciones {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px); /* Ocupa la mitad del ancho del contenedor menos el margen derecho de la imagen */
+  }
+
+.info_recomendaciones .text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info_recomendaciones p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.CambiarInfo {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #4dcae0d0;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.CambiarInfo:hover,
+.CambiarInfo:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.CambiarInfo:active {
+  background: var(--color);
+  color: #db3a09fa;
+}
+/* Styles for screens smaller than 480px */
+@media (max-width: 480px) {
+    .imagen_muestra,
+    .img_muestra {
+      width: 100%; /* Make image full width on small screens */
+    }
+  
+    .info_daños,
+    .info_recomendaciones {
+      width: 100%; /* Make info sections full width on small screens */
+    }
+  }
+  
+  /* Styles for screens between 481px and 768px */
+  @media (min-width: 481px) and (max-width: 768px) {
+    /* You can add specific styles for medium screens here */
+  }
+  
+  /* Styles for screens between 769px and 1024px */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .imagen_muestra,
+    .img_muestra {
+      width: 70%; /* Adjust image width for medium-large screens */
+    }
+  }
