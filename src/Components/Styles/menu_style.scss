@@ -81,8 +81,8 @@ body{
     align-items: center;
 }
 .photo-load .submit {
-    max-width: 60%; /* La imagen no excede el 100% del ancho del contenedor */
-    max-height: 70%; /* La imagen no excede el 100% de la altura del contenedor */
+    max-width: 35%; /* La imagen no excede el 100% del ancho del contenedor */
+    max-height: 50%; /* La imagen no excede el 100% de la altura del contenedor */
     width: auto; /* Ajusta automáticamente el ancho */
     height: auto; /* Ajusta automáticamente la altura */
 }
@@ -166,6 +166,7 @@ button{
         max-width: 100%; /* El botón ocupará todo el ancho disponible */
         height: 40px; /* Reducir la altura */
     }
+    
 }
 
 @media (min-width: 481px) and (max-width: 768px) {

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/menu_style.scss';
 import CustomButton from './ButtonExit';
 import main_logo from '../../assets/freshguard-logo.jpeg';
-import camara from '../../assets/MainMenu/camara.png';
+import upload from '../../assets/MainMenu/cloud-upload-alt.png';
 import info from '../../assets/MainMenu/info.png';
 import doc from '../../assets/MainMenu/doc.png';
 import Swal from 'sweetalert2';
@@ -70,12 +70,14 @@ const MainMenu = ({ correoUsuario }) => {
                 if (statusCode === 200 || statusCode === 201) {
                     setResult(data);
                     navigate('/Resultados', { state: { imageBase64, result: data } });
+                    ShowLoaingMessege(false)
                     Swal.fire({
                         icon: 'success',
                         title: 'Imagen cargada correctamente',
                         showConfirmButton: false,
                     });
                 } else {
+                    ShowLoaingMessege(false)
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -83,6 +85,7 @@ const MainMenu = ({ correoUsuario }) => {
                     });
                 }
             } catch (error) {
+                ShowLoaingMessege(false)
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -90,7 +93,6 @@ const MainMenu = ({ correoUsuario }) => {
                 });
             }
         }
-        ShowLoaingMessege(false)
     };
     
     useEffect(() => {
@@ -123,7 +125,7 @@ const MainMenu = ({ correoUsuario }) => {
                             onChange={handleFileChange}
                         />
                         <button onClick={handleButtonClick}>
-                            <img src={camara} alt="Cargar foto" className='submit' />
+                            <img src={upload} alt="Cargar foto" className='submit' />
                         </button>
                         <p>Cargar foto</p>
                     </div>
