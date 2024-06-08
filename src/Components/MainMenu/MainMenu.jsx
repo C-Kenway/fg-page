@@ -66,7 +66,7 @@ const MainMenu = ({ correoUsuario }) => {
         });
         swalWithBootstrapButtons.fire({
             title: "¿Estas seguro?",
-            text: "El modelo de entrenamiento esta diseñado para detectar los defectos en jitomate saladette y chile serrano. ¡NO otro tipo de imagenes!",
+            text: "El modelo de entrenamiento esta diseñado para detectar los defectos en jitomate saladette y chile serrano. ¡NO otro tipo de imagenes!, por lo que acabara dando error o bien un resulatdo incoherente",
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "Si, ¡subelo!",
