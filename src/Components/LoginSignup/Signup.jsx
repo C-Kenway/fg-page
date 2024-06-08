@@ -8,7 +8,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 const auth = getAuth(appFirebase);
 
@@ -16,31 +16,50 @@ export const LoginSignup = () => {
     const navigate = useNavigate();
     const [isChecked, setIsChecked] = useState(false);
 
-    const ShowLoaingMessege = (flag) =>{
-        if(flag)Swal.showLoading()
-        else Swal.close()
-    }
+    const ShowLoaingMessege = (flag) => {
+        if (flag) Swal.showLoading();
+        else Swal.close();
+    };
 
     const functAutentication = async (e) => {
         e.preventDefault();
-        ShowLoaingMessege(true)
+        ShowLoaingMessege(true);
+
         // Verifica si el checkbox está marcado
         if (!isChecked) {
             alert('Se deben aceptar términos y condiciones.');
-            ShowLoaingMessege(false)
+            ShowLoaingMessege(false);
             return;
         }
-        
+
         const correo = e.target.email.value;
         const contraseña = e.target.password.value;
-        
+
+        // Expresión regular para validar el correo electrónico
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Expresión regular para validar la contraseña
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+        if (!emailRegex.test(correo)) {
+            alert("Por favor, introduce una dirección de correo electrónico válida.");
+            ShowLoaingMessege(false);
+            return;
+        }
+
+        if (!passwordRegex.test(contraseña)) {
+            alert("La contraseña debe tener al menos 6 caracteres, incluyendo al menos una letra mayúscula y una letra minúscula.");
+            ShowLoaingMessege(false);
+            return;
+        }
+
         try {
             await createUserWithEmailAndPassword(auth, correo, contraseña);
-            navigate('/freshg_vite');
+            navigate('/freshguard');
         } catch (error) {
-            alert("Correo o contraseña no válido");
+            alert("Ha ocurrido un error. Inténtelo más tarde.");
         }
-        ShowLoaingMessege(false)
+        ShowLoaingMessege(false);
     };
 
     const handleCheckboxChange = (e) => {
