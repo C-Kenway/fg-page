@@ -13,20 +13,19 @@ const auth = getAuth(appFirebase);
 
 const MainMenu = ({ correoUsuario }) => {
 
-    const ShowLoaingMessege = (flag) =>{
-        if(flag){
+    const ShowLoaingMessege = (flag) => {
+        if (flag) {
             Swal.fire({
                 title: 'Analizando imagen...',
                 didOpen: () => {
-                  Swal.disableButtons();
-                  Swal.showLoading();
+                    Swal.disableButtons();
+                    Swal.showLoading();
                 }
-              });
+            });
         }
         else Swal.close()
     }
 
-    
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
     const [file, setFile] = useState(null);
@@ -49,17 +48,60 @@ const MainMenu = ({ correoUsuario }) => {
         }
     };
 
+    const resetFileState = () => {
+        setFile(null);
+        setImageBase64(null);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
+
     const uploadImage = async () => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "¿Estas seguro?",
+            text: "El modelo de entrenamiento esta diseñado para detectar los defectos en jitomate saladette y chile serrano. ¡NO otro tipo de imagenes!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si, ¡subelo!",
+            cancelButtonText: "No, ¡cancelalo!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                    title: "Subido!",
+                    text: "Tu imagen será procesado",
+                    icon: "success"
+                });
+                enviarInfo();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelado",
+                    text: "Has cancelado la operacion :3",
+                    icon: "error"
+                });
+                resetFileState();  // Reset the state when the user cancels the upload
+            }
+        });
+    };
+
+    const enviarInfo = async () => {
         ShowLoaingMessege(true)
         if (file) {
             const formData = new FormData();
             formData.append('image', file);
             try {
-                const response = await fetch('/predict', { // El proxy redirigirá esta solicitud
+                const response = await fetch('/predict', {
                     method: 'POST',
                     body: formData,
                 });
-                
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -93,8 +135,8 @@ const MainMenu = ({ correoUsuario }) => {
                 });
             }
         }
-    };
-    
+    }
+
     useEffect(() => {
         if (file && imageBase64) {
             uploadImage();
