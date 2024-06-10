@@ -27,12 +27,12 @@ export const Politicas = () => {
                         <li>Cumplimiento Normativo:</li><p>Nos comprometemos a cumplir con todas las leyes y regulaciones pertinentes, especialmente aquellas relacionadas con la clasificación de enfermedades y estados de los productos alimenticios según la normativa mexicana.</p>
                         <li>Modificaciones:</li><p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Se notificará a los usuarios sobre cualquier cambio realizado.</p>
                     </ol>
+                    <p>Para información mas detallada descargar y leer el siguiente documento: <a href={termsAndConditionsPDF} download="Términos y condiciones.pdf">Descargar Términos y Condiciones</a></p>
                     <h6>Créditos a dependencias externas: </h6>
                     <ol>
                         <li><a href="https://www.flaticon.es/iconos-gratis/carga-en-la-nube-alt" title="carga-en-la-nube-alt iconos">Carga-en-la-nube-alt iconos creados por iconading - Flaticon</a></li>
                         <li><a href="https://www.flaticon.es/iconos-gratis/documentos" title="documentos iconos">Documentos iconos creados por Freepik - Flaticon</a></li>
                     </ol>
-                    <p>Para información mas detallada descargar y leer el siguiente documento: <a href={termsAndConditionsPDF} download="Términos y condiciones.pdf">Descargar Términos y Condiciones</a></p>
                 </div>
                 <div className="submit-container">
                     <div className="politics">
