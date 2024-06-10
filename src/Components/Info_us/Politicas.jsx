@@ -2,6 +2,7 @@ import '../Styles/info_us.css'
 import main_logo from '../../assets/freshguard-logo.jpeg'
 import info from '../../assets/MainMenu/info.png'
 import back from '../../assets/MainMenu/back.png'
+import termsAndConditionsPDF from '../../assets/documents/TerminosyCondiciones.pdf';
 import { Link } from 'react-router-dom';
 
 export const Politicas = () => {
@@ -22,7 +23,7 @@ export const Politicas = () => {
                         <li>Aceptación de los Términos:</li><p>Al utilizar nuestro servicio, aceptas cumplir con estos términos y condiciones. Si no estás de acuerdo con alguna parte de estos términos, por favor, no utilices nuestro servicio.</p>
                         <li>Descripción del Servicio:</li><p> Freshguard ofrece un servicio que permite a los usuarios cargar imágenes de jitomates y chiles serranos para determinar si están enfermos o sanos. Nuestro servicio se basa en la normativa mexicana para clasificar las enfermedades y estados de los productos.</p>
                         <li>Uso Aceptable</li><p>Los usuarios deben utilizar nuestro servicio de manera responsable y legal. No se permite el uso del servicio para actividades ilegales o fraudulentas.</p>
-                        <li>Precisión de los Resultados: </li><p>Hacemos todo lo posible para proporcionar resultados precisos, pero no podemos garantizar la precisión al 100%. Los resultados son proporcionados con fines informativos y educativos únicamente, y no deben sustituir el asesoramiento profesional o médico.</p>
+                        <li>Precisión de los Resultados: </li><p>Hacemos todo lo posible para proporcionar resultados precisos, pero no podemos garantizar la precisión al 100%.</p>
                         <li>Cumplimiento Normativo:</li><p>Nos comprometemos a cumplir con todas las leyes y regulaciones pertinentes, especialmente aquellas relacionadas con la clasificación de enfermedades y estados de los productos alimenticios según la normativa mexicana.</p>
                         <li>Modificaciones:</li><p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Se notificará a los usuarios sobre cualquier cambio realizado.</p>
                     </ol>
@@ -31,6 +32,8 @@ export const Politicas = () => {
                         <li><a href="https://www.flaticon.es/iconos-gratis/carga-en-la-nube-alt" title="carga-en-la-nube-alt iconos">Carga-en-la-nube-alt iconos creados por iconading - Flaticon</a></li>
                         <li><a href="https://www.flaticon.es/iconos-gratis/documentos" title="documentos iconos">Documentos iconos creados por Freepik - Flaticon</a></li>
                     </ol>
+                    <p>Para información mas detallada descargar y leer el siguiente documento</p>
+                    <a href={termsAndConditionsPDF} download="Términos y condiciones.pdf">Descargar Términos y Condiciones</a>
                 </div>
                 <div className="submit-container">
                     <div className="politics">
