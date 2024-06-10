@@ -32,8 +32,7 @@ export const Politicas = () => {
                         <li><a href="https://www.flaticon.es/iconos-gratis/carga-en-la-nube-alt" title="carga-en-la-nube-alt iconos">Carga-en-la-nube-alt iconos creados por iconading - Flaticon</a></li>
                         <li><a href="https://www.flaticon.es/iconos-gratis/documentos" title="documentos iconos">Documentos iconos creados por Freepik - Flaticon</a></li>
                     </ol>
-                    <p>Para información mas detallada descargar y leer el siguiente documento</p>
-                    <a href={termsAndConditionsPDF} download="Términos y condiciones.pdf">Descargar Términos y Condiciones</a>
+                    <p>Para información mas detallada descargar y leer el siguiente documento: <a href={termsAndConditionsPDF} download="Términos y condiciones.pdf">Descargar Términos y Condiciones</a></p>
                 </div>
                 <div className="submit-container">
                     <div className="politics">
