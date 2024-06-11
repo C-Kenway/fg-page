@@ -3,8 +3,9 @@ import email_icon from '../../assets/LoginSignUp/email.png';
 import password_icon from '../../assets/LoginSignUp/password.png';
 import main_logo from '../../assets/freshguard-logo.jpeg';
 
-import appFirebase from '../../credenciales';
+import { appFirebase, db } from '../../credenciales'; // Importando de manera nombrada
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -32,6 +33,7 @@ export const LoginSignup = () => {
             return;
         }
 
+        const nombreUsuario = e.target.username.value;
         const correo = e.target.email.value;
         const contraseña = e.target.password.value;
 
@@ -54,7 +56,12 @@ export const LoginSignup = () => {
         }
 
         try {
-            await createUserWithEmailAndPassword(auth, correo, contraseña);
+            const userCredential = await createUserWithEmailAndPassword(auth, correo, contraseña);
+            const user = userCredential.user;
+            await setDoc(doc(db, 'users', user.uid), {
+                name: nombreUsuario,
+                email: user.email,
+            });
             navigate('/freshguard');
         } catch (error) {
             alert("Ha ocurrido un error. Inténtelo más tarde.");
@@ -80,6 +87,10 @@ export const LoginSignup = () => {
                     <div className='inputs'>
                         <div className='input'>
                             <img src={email_icon} alt='' />
+                            <input type='text' className='input-line' placeholder='Nombre de usuario' id='username' required />
+                        </div>
+                        <div className='input'>
+                            <img src={email_icon} alt='' />
                             <input type='email' className='input-line' placeholder='Email' id='email' required />
                         </div>
                         <div className='input'>
@@ -93,7 +104,6 @@ export const LoginSignup = () => {
                                 id='terms'
                                 checked={isChecked}
                                 onChange={handleCheckboxChange}
-                                /*required*/
                             />
                             <Link to={'/Politicas'}>
                                 <span>Términos, Condiciones y Aviso de privacidad</span>

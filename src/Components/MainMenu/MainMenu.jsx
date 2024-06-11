@@ -3,15 +3,30 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/menu_style.scss';
 import CustomButton from './ButtonExit';
 import main_logo from '../../assets/freshguard-logo.jpeg';
-import upload from '../../assets/MainMenu/cloud-upload-alt.png';
-import info from '../../assets/MainMenu/info.png';
-import doc from '../../assets/MainMenu/doc.png';
+import upload_icon from '../../assets/MainMenu/cloud-upload-alt.png';
+import info_icon from '../../assets/MainMenu/info.png';
+import doc_icon from '../../assets/MainMenu/doc.png';
 import Swal from 'sweetalert2';
-import appFirebase from '../../credenciales';
+import { appFirebase, db } from '../../credenciales'; // Importando de manera nombrada
 import { getAuth, signOut } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore'; // Importar funciones Firestore
+
 const auth = getAuth(appFirebase);
 
 const MainMenu = ({ correoUsuario }) => {
+    const [nombreUsuario, setNombreUsuario] = useState(''); // Estado para almacenar el nombre de usuario
+
+    useEffect(() => {
+        const fetchUserName = async () => {
+            if (auth.currentUser) {
+                const userDoc = await getDoc(doc(db, 'users', auth.currentUser.uid));
+                if (userDoc.exists()) {
+                    setNombreUsuario(userDoc.data().name);
+                }
+            }
+        };
+        fetchUserName();
+    }, []);
 
     const ShowLoaingMessege = (flag) => {
         if (flag) {
@@ -146,15 +161,15 @@ const MainMenu = ({ correoUsuario }) => {
     return (
         <div className='container'>
             <div className="header">
-                <CustomButton text="Cerrar Sesión" onClick={() => signOut(auth)} />
                 <div className="mainlogo">
                     <img src={main_logo} alt="logo" />
                 </div>
             </div>
             <div className="data">
                 <div className="info_count-container">
-                    <div className="text">¡Hola! Bienvenido</div>
-                    <p>Usuario: {correoUsuario}</p>
+                    <div className="text">¡Hola, {nombreUsuario || correoUsuario}!</div>
+                    <p className='text'>Bienvenido</p>
+                    <p>¿Que te gustaria hacer hoy? </p> 
                     <p>No olvide leer las políticas de la página así como acerca de nosotros si quisiera conocer más sobre Freshguard.</p>
                 </div>
                 <div className="submit-container">
@@ -167,20 +182,21 @@ const MainMenu = ({ correoUsuario }) => {
                             onChange={handleFileChange}
                         />
                         <button onClick={handleButtonClick}>
-                            <img src={upload} alt="Cargar foto" className='submit' />
+                            <img src={upload_icon} alt="Cargar foto" className='submit' />
                         </button>
                         <p>Cargar foto</p>
                     </div>
                     <div className="info-us">
                         <div>
-                            <Link to={"/Nosotros"}><img src={info} alt="Acerca de nosotros" className='submit' /></Link>
+                            <Link to={"/Nosotros"}><img src={info_icon} alt="Acerca de nosotros" className='submit' /></Link>
                             <p>Acerca de nosotros</p>
                         </div>
                         <div>
-                            <Link to={"/Politicas"}><img src={doc} alt="Políticas" className='submit' /></Link>
+                            <Link to={"/Politicas"}><img src={doc_icon} alt="Políticas" className='submit' /></Link>
                             <p>Términos y condiciones</p>
                         </div>
                     </div>
+                    <div><CustomButton text="Cerrar Sesión" onClick={() => signOut(auth)} /></div>
                 </div>
             </div>
         </div>
