@@ -16,7 +16,7 @@ export const Nosotros = () => {
             </div>
             <div className="data">
                 <div className="info_count-container">
-                    <div className="text">Problematicá</div>
+                    <div className="text">Problematica</div>
                     <p>En el mundo dinámico y cambiante de la industria alimentaria, la búsqueda constante de la mejora en la
                         calidad de productos perecederos se convierte en un desafío apremiante. En este contexto, surge la pregunta fundamental:
                         ¿Cómo puede la tecnología desempeñar un papel crucial en elevando la calidad de alimentos susceptibles a la descomposición?</p>
